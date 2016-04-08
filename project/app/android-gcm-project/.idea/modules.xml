@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/NetworkCommunication_step6.iml" filepath="$PROJECT_DIR$/NetworkCommunication_step6.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android-gcm-project.iml" filepath="$PROJECT_DIR$/android-gcm-project.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
