@@ -34,11 +34,6 @@
             </intent-filter>
         </service>
         <service
-            android:name="com.example.networkcommunication.RegistrationIntentService"
-            android:exported="false">
-
-        </service>
-        <service
             android:name="com.example.networkcommunication.MyInstanceIDListenerService"
             android:exported="false">
             <intent-filter>

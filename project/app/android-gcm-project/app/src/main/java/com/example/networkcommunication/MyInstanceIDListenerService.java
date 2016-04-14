@@ -17,6 +17,7 @@
 package com.example.networkcommunication;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 
 import com.google.android.gms.iid.InstanceIDListenerService;
 
@@ -33,8 +34,13 @@ public class MyInstanceIDListenerService extends InstanceIDListenerService {
     @Override
     public void onTokenRefresh() {
         // Fetch updated Instance ID token and notify our app's server of any changes (if applicable).
-        Intent intent = new Intent(this, RegistrationIntentService.class);
-        startService(intent);
+        AsyncTask<Void, Void, Void> getTokenTask = new AsyncTask<Void, Void, Void>() {
+
+            @Override
+            protected Void doInBackground(Void... params) {
+                return null;
+            }
+        };
     }
     // [END refresh_token]
 }
