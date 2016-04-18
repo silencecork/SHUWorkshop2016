@@ -5,6 +5,6 @@ package com.example.networkcommunication;
  */
 public class Constant {
 
-    public static final String SENDER_ID = "154560742341";
+    public static final String SENDER_ID = "";
 
 }
