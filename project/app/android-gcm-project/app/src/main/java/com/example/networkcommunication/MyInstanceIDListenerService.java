@@ -18,11 +18,11 @@ package com.example.networkcommunication;
 
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.text.TextUtils;
 
 import com.google.android.gms.iid.InstanceIDListenerService;
 
 public class MyInstanceIDListenerService extends InstanceIDListenerService {
-
     private static final String TAG = "MyInstanceIDLS";
 
     /**
@@ -33,14 +33,17 @@ public class MyInstanceIDListenerService extends InstanceIDListenerService {
     // [START refresh_token]
     @Override
     public void onTokenRefresh() {
-        // Fetch updated Instance ID token and notify our app's server of any changes (if applicable).
         AsyncTask<Void, Void, Void> getTokenTask = new AsyncTask<Void, Void, Void>() {
-
             @Override
             protected Void doInBackground(Void... params) {
+                String token = GCMUtils.getGCMToken(MyInstanceIDListenerService.this);
+                if (!TextUtils.isEmpty(token)) {
+                    GCMUtils.saveToken(MyInstanceIDListenerService.this, token);
+                }
                 return null;
             }
         };
+        getTokenTask.execute();
     }
     // [END refresh_token]
 }

@@ -1,6 +1,8 @@
 package com.example.networkcommunication;
 
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.util.Log;
 
 import com.google.android.gms.gcm.GoogleCloudMessaging;
@@ -33,5 +35,17 @@ public class GCMUtils {
         }
 
         return null;
+    }
+
+    public static void saveToken(Context context, String token) {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("token", token);
+        editor.commit();
+    }
+
+    public static String getSavedToken(Context context) {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        return sharedPreferences.getString("token", null);
     }
 }
