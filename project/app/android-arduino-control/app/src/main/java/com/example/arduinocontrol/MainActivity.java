@@ -22,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
     private static final String ARDUINO_YUN_IP = "192.168.43.169";
     private Switch mLightSwitch;
     private View mBackground;
-    private int mCurrentBackgroundColor = Color.BLACK;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mBackground = findViewById(R.id.background);
-        mBackground.setBackgroundColor(mCurrentBackgroundColor);
+        mBackground.setBackgroundColor(Color.BLACK);
 
         mLightSwitch = (Switch) findViewById(R.id.switch1);
         mLightSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -57,7 +56,6 @@ public class MainActivity extends AppCompatActivity {
         String url = (isOn) ?
                 "http://" + ARDUINO_YUN_IP + "/arduino/digital/1" :
                 "http://" + ARDUINO_YUN_IP + "/arduino/digital/0";
-        
         StringRequest request = new StringRequest(Request.Method.GET, url, mOnSuccessListener, mOnErrorListener);
         NetworkManager.getInstance(MainActivity.this).request(null, request);
     }
